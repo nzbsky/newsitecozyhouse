@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COZYHOUSE - Затишні будиночки у Славську</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6f28;
+            --secondary: #f5f5dc;
+            --accent: #d4a762;
+            --text: #333333;
+            --light: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('./img/holovna.JPG');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .houses {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .house-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .house-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .house-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .house-info {
+            padding: 1.5rem;
+        }
+        
+        .house-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .house-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .location {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .location-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .location-address {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stars {
+            color: var(--accent);
+        }
+        
+        .location-map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .faq {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            color: #666;
+        }
+        
+        .contact {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-phone {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--text);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Модальне вікно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+        
+        .booking-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Сповіщення про успішне відправлення */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .success-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .success-text {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">COZYHOUSE</a>
+            <div class="nav-links">
+                <a href="#">Головна</a>
+                <a href="#houses">Будиночки</a>
+                <a href="#services">Послуги</a>
+                <a href="#location">Локація</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Контакти</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>COZYHOUSE</h1>
+        <p>slavsko</p>
+        <a href="#houses" class="btn">RESERVE</a>
+    </section>
+    
+    <section id="houses">
+        <h2 class="section-title">Оберіть простір для відпочинку</h2>
+        <div class="houses">
+            <div class="house-card">
+                <img src="./img/big.JPG" alt="Будинок на 6 осіб" class="house-img">
+                <div class="house-info">
+                    <h3 class="house-title">Будинок "6 Осіб"</h3>
+                    <p>Ідеально підходить для великої родини. У будинку є стильна вітальня з каміном - чудове місце для вечірніх посиденьок, а також проектор для перегляду фільмів. Обладнана кухня, зручні спальні, краєвиди та свіже повітря.</p>
+                    <p class="house-price">6000 грн/доба</p>
+                    <button class="btn book-btn" data-house="Будинок '6 Осіб'" data-price="6000">Забронювати</button>
+                </div>
+            </div>
+            
+            <div class="house-card">
+                <img src="./img/soso.JPG" alt="Будинок на 4 особи" class="house-img">
+                <div class="house-info">
+                    <h3 class="house-title">Будинок "4 Особи"</h3>
+                    <p>Всередині повністю обладнана кухня, затишна зона відпочинку з диванчиком, тепла атмосфера дерев'яного інтер'єру. Ідеально підходить для спільного відпочинку, катання на лижах чи просто спокійних вечорів біля природи.</p>
+                    <p class="house-price">4000 грн/доба</p>
+                    <button class="btn book-btn" data-house="Будинок '4 Особи'" data-price="4000">Забронювати</button>
+                </div>
+            </div>
+            
+            <div class="house-card">
+                <img src="./img/smoal.JPG" alt="Будинок на 2 особи" class="house-img">
+                <div class="house-info">
+                    <h3 class="house-title">Будинок "2 Особи"</h3>
+                    <p>Ідеальне місце для романтичного відпочинку без відчуття міської метушні. Всередині — компактна кухня для приготування улюблених страв, зручний маленький диванчик для вечірнього затишку та атмосфера справжнього спокою.</p>
+                    <p class="house-price">3000 грн/доба</p>
+                    <button class="btn book-btn" data-house="Будинок '2 Особи'" data-price="3000">Забронювати</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2 class="section-title">Додаткові послуги</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3 class="service-title">Карпатські послуги</h3>
+                <p>Ідеальний релакс після активного дня в горах. Справжній карпатський чан .</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-snowboarding"></i>
+                </div>
+                <h3 class="service-title">Катання на лижах</h3>
+                <p>Адреналін і пригоди гарантовано! Прокат обладнання та інструктори для початківців.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hiking"></i>
+                </div>
+                <h3 class="service-title">Походи в гори</h3>
+                <p>Екскурсії з досвідченими гідами до найкрасивіших місць Карпат.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="service-title">Джипінг</h3>
+
+                <p>Подорожі на адреналіні</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="location" class="location">
+        <div class="location-info">
+            <h2 class="location-title">Насолоджуйтесь справжнім релаксом і оздоровленням</h2>
+            <p>Насолоджуйтесь красою Карпат у нашому затишному комплексі.</p>
+            <p class="location-address">
+                <i class="fas fa-map-marker-alt"></i> Славсько, вулиця Устияновича, , Львівська область, 82660.
+            </p>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span>5,0 ★★★★★ (6 відгуків)</span>
+            </div>
+            <a href="https://maps.google.com" class="btn" target="_blank">Відкрити карту</a>
+        </div>
+        <div class="location-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14855.731352690864!2d23.433142131463196!3d48.83633287526729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47398d290684aabb%3A0x931f501bb8c7eef7!2scozyhouse!5e0!3m2!1sru!2sua!4v1748712350105!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    
+    <section id="faq" class="faq">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">1. Як можна забронювати будиночок?</h3>
+            <p class="faq-answer">Ви можете забронювати будиночок через наш сайт, зателефонувавши за вказаним номером телефону або написавши нам у соціальних мережах.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="faq-question">2. Чи потрібно вносити передоплату?</h3>
+            <p class="faq-answer">Так, для підтвердження бронювання необхідно внести передоплату у розмірі 30% від вартості проживання.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="faq-question">3. Що входить у вартість проживання?</h3>
+            <p class="faq-answer">У вартість проживання входить оренда будинку, постільна білизна, рушники, базові санітарні засоби та прибирання після виїзду.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="faq-question">4. Чи можна змінити або скасувати бронювання?</h3>
+            <p class="faq-answer">Змінити дати бронювання можна за 3 дні до заїзду. Скасування бронювання можливе за 3 днів до заїзду з поверненням передоплати.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="faq-question">5. Чи є обмеження за кількістю гостей?</h3>
+            <p class="faq-answer">Так, максимальна кількість гостей вказана в описі кожного будинку. Додаткові гості можуть бути розміщені за додаткову плату.</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2 class="contact-title">Контакти</h2>
+        <p class="contact-phone">
+            <i class="fas fa-phone"></i> +380 98 099 88 25
+        </p>
+        <p>Зв'яжіться з нами для бронювання або додаткових питань</p>
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@cozy.house_karpaty" class="social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/cozyhouse_karpaty/?next=%2F" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/cozyhouse_slavske" class="social-link"><i class="fab fa-telegram"></i></a>
+
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 COZYHOUSE slavsko. Всі права захищені.</p>
+        <p>Створено з ❤️ для вашого відпочинку</p>
+    </footer>
+
+    <!-- Модальне вікно для бронювання -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div id="bookingForm">
+                <h2 class="booking-title">Бронювання <span id="modalHouseTitle"></span></h2>
+                <form class="booking-form" id="bookingFormElement" action="https://formspree.io/f/xgvywnbo" method="POST">
+                    <input type="hidden" name="house" id="formHouse">
+                    <input type="hidden" name="price" id="formPrice">
+                    
+                    <div class="form-group">
+                        <label for="name">Ім'я:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Номер телефону:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="people">Кількість осіб:</label>
+                        <input type="number" id="people" name="people" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Дата заїзду:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="days">Кількість діб:</label>
+                        <input type="number" id="days" name="days" min="1" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Надіслати заявку</button>
+                </form>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="success-title">Дякуємо за бронювання!</h2>
+                <p class="success-text">Ваша заявка успішно відправлена. Наш менеджер зв'яжеться з вами найближчим часом для підтвердження.</p>
+                <button class="btn" id="closeSuccess">Закрити</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Відкриття модального вікна при кліку на кнопку бронювання
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const house = this.getAttribute('data-house');
+                const price = this.getAttribute('data-price');
+                
+                document.getElementById('modalHouseTitle').textContent = house;
+                document.getElementById('formHouse').value = house;
+                document.getElementById('formPrice').value = price;
+                
+                document.getElementById('bookingModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Закриття модального вікна
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Закриття модального вікна при кліку поза ним
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('bookingModal')) {
+                document.getElementById('bookingModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Обробка форми бронювання
+        document.getElementById('bookingFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Показуємо повідомлення про успіх
+                    document.getElementById('bookingForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Очищаємо форму
+                    form.reset();
+                } else {
+                    throw new Error('Помилка при відправленні форми');
+                }
+            })
+            .catch(error => {
+                alert('Сталася помилка при відправленні форми. Будь ласка, спробуйте ще раз або зателефонуйте нам.');
+                console.error(error);
+            });
+        });
+        
+        // Закриття повідомлення про успіх
+        document.getElementById('closeSuccess').addEventListener('click', function() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('bookingForm').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+        });
+        
+        // Встановлення мінімальної дати для бронювання (сьогодні)
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
