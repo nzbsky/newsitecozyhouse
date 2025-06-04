@@ -1,16 +1,16 @@
-   // Gallery data - replace with your actual image paths
+       // Gallery data - replace with your actual image paths
         const galleryData = {
-         "6people": [
-        "./img/big/big1.JPG",
-        "./img/big/big2.JPG",
-        "./img/big/big3.JPG",
-        "./img/big/big4.JPG",
-        "./img/big/big5.JPG",
-        "./img/big/big6.JPG",
-        "./img/big/big7.JPG",
-        "./img/big/big8.JPG",
-        "./img/big/big9.JPG"
-    ],
+            "6people": [
+                "./img/big/big1.JPG",
+                "./img/big/big2.JPG",
+                "./img/big/big3.JPG",
+                "./img/big/big4.JPG",
+                "./img/big/big5.JPG",
+                "./img/big/big6.JPG",
+                "./img/big/big7.JPG",
+                "./img/big/big8.JPG",
+                "./img/big/big9.JPG"
+            ],
             "4people": [
                 "./img/soso/soso1.JPG",
                 "./img/soso/soso2.JPG",
@@ -25,7 +25,6 @@
                 "./img/smoal/smoal3.JPG",
                 "./img/smoal/smoal4.JPG",
                 "./img/smoal/smoal5.JPG"
-             
             ]
         };
 
@@ -129,73 +128,120 @@
         });
 
         // Booking modal functionality
-        document.querySelectorAll('.book-btn').forEach(button => {
+        const bookingModal = document.getElementById('bookingModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const bookBtns = document.querySelectorAll('.book-btn');
+        const modalHouseTitle = document.getElementById('modalHouseTitle');
+        const formHouse = document.getElementById('formHouse');
+        const formPrice = document.getElementById('formPrice');
+        const bookingFormElement = document.getElementById('bookingFormElement');
+        const successMessage = document.getElementById('successMessage');
+        const closeSuccessBtn = document.getElementById('closeSuccess');
+        const bookingFormDiv = document.getElementById('bookingForm');
+        const cottageSelect = document.getElementById('cottage');
+
+
+        bookBtns.forEach(button => {
             button.addEventListener('click', function() {
-                const house = this.getAttribute('data-house');
-                const price = this.getAttribute('data-price');
+                const houseName = this.getAttribute('data-house');
+                const housePrice = this.getAttribute('data-price');
                 
-                document.getElementById('modalHouseTitle').textContent = house;
-                document.getElementById('formHouse').value = house;
-                document.getElementById('formPrice').value = price;
-                
-                document.getElementById('bookingModal').style.display = 'flex';
+                modalHouseTitle.textContent = houseName;
+                formHouse.value = houseName;
+                formPrice.value = housePrice;
+
+                // Set the selected option in the dropdown
+                Array.from(cottageSelect.options).forEach(option => {
+                    if (option.value === houseName) {
+                        option.selected = true;
+                    }
+                });
+
+                bookingFormDiv.style.display = 'block'; // Show the form
+                successMessage.style.display = 'none'; // Hide success message
+                bookingModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             });
         });
-        
-        // Close booking modal
-        document.querySelector('.close-modal').addEventListener('click', function() {
-            document.getElementById('bookingModal').style.display = 'none';
+
+        closeModalBtn.addEventListener('click', function() {
+            bookingModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
-        
-        // Close booking modal when clicking outside
-        window.addEventListener('click', function(event) {
-            if (event.target === document.getElementById('bookingModal')) {
-                document.getElementById('bookingModal').style.display = 'none';
+
+        bookingModal.addEventListener('click', function(e) {
+            if (e.target === bookingModal) {
+                bookingModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
-        
-        // Form submission
-        document.getElementById('bookingFormElement').addEventListener('submit', function(e) {
+
+        closeSuccessBtn.addEventListener('click', function() {
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Handle form submission with Formspree
+        bookingFormElement.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
             const form = e.target;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
                 headers: {
                     'Accept': 'application/json'
                 }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('bookingForm').style.display = 'none';
-                    document.getElementById('successMessage').style.display = 'block';
-                    
-                    // Reset form
-                    form.reset();
-                } else {
-                    throw new Error('Помилка при відправленні форми');
+            });
+
+            if (response.ok) {
+                bookingFormDiv.style.display = 'none';
+                successMessage.style.display = 'block';
+                form.reset(); // Clear the form
+            } else {
+                alert('Виникла помилка під час відправлення заявки. Будь ласка, спробуйте ще раз.');
+            }
+        });
+
+        // Sticky navigation
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav .nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.getElementById('navLinks').classList.remove('active'); // Close mobile menu if open
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - nav.offsetHeight, // Adjust for fixed header height
+                        behavior: 'smooth'
+                    });
+                } else if (targetId === '') { // For "Головна" link pointing to '#'
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 }
-            })
-            .catch(error => {
-                alert('Сталася помилка при відправленні форми. Будь ласка, спробуйте ще раз або зателефонуйте нам.');
-                console.error(error);
             });
         });
-        
-        // Close success message
-        document.getElementById('closeSuccess').addEventListener('click', function() {
-            document.getElementById('bookingModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('bookingForm').style.display = 'block';
-            document.getElementById('successMessage').style.display = 'none';
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-        
-        // Set minimum date for booking (today)
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
