@@ -4,17 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COZYHOUSE — Будиночки в Карпатах · Славсько</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       :root {
         --primary: #3a5c1a;
@@ -29,1125 +22,244 @@
         --border: #e8e0d0;
         --nav-h: 74px;
       }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background-color: var(--secondary); color: var(--text); font-family: "Nunito", sans-serif; line-height: 1.65; }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        background-color: var(--secondary);
-        color: var(--text);
-        font-family: "Nunito", sans-serif;
-        line-height: 1.65;
-      }
-
-      /* NAV */
       nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 5%;
-        height: var(--nav-h);
-        background: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(12px);
-        position: fixed;
-        width: 100%;
-        z-index: 500;
-        transition:
-          background 0.35s,
-          box-shadow 0.35s;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 5%; height: var(--nav-h);
+        background: rgba(0,0,0,0.25); backdrop-filter: blur(12px);
+        position: fixed; width: 100%; z-index: 500;
+        transition: background 0.35s, box-shadow 0.35s;
       }
-      nav.scrolled {
-        background: var(--primary);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-      }
-      .logo {
-        font-family: "Playfair Display", serif;
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: #fff;
-        text-decoration: none;
-        letter-spacing: 0.5px;
-      }
-      .logo span {
-        color: var(--accent-light);
-      }
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-      .nav-links a {
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-        font-size: 0.95rem;
-        letter-spacing: 0.3px;
-        transition: color 0.25s;
-      }
-      .nav-links a:hover {
-        color: var(--accent-light);
-      }
-      .mobile-menu-btn {
-        display: none;
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 1.7rem;
-        cursor: pointer;
-      }
+      nav.scrolled { background: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+      .logo { font-family: "Playfair Display", serif; font-size: 1.7rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: 0.5px; }
+      .logo span { color: var(--accent-light); }
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; transition: color 0.25s; }
+      .nav-links a:hover { color: var(--accent-light); }
+      .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.7rem; cursor: pointer; }
 
-      /* HERO */
       header {
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.55) 0%,
-            rgba(0, 0, 0, 0.35) 60%,
-            rgba(0, 0, 0, 0.6) 100%
-          ),
+        background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.6) 100%),
           url("./img/holovna.JPG") no-repeat center center / cover;
-        min-height: 100vh;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
+        min-height: 100vh; color: #fff; display: flex; flex-direction: column;
       }
       .hero {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: calc(var(--nav-h) + 2rem) 1.5rem 3rem;
+        flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        text-align: center; padding: calc(var(--nav-h) + 2rem) 1.5rem 3rem;
       }
       .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(6px);
-        border-radius: 50px;
-        padding: 0.4rem 1.1rem;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: var(--accent-light);
-        margin-bottom: 1.3rem;
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(6px); border-radius: 50px; padding: 0.4rem 1.1rem;
+        font-size: 0.85rem; font-weight: 700; letter-spacing: 0.8px;
+        text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.3rem;
       }
-      .hero h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2.2rem, 5vw, 4.2rem);
-        font-weight: 700;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-      }
-      .hero p {
-        font-size: clamp(1rem, 2vw, 1.3rem);
-        max-width: 620px;
-        opacity: 0.92;
-        margin-bottom: 0.7rem;
-      }
-      .hero-price {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: var(--accent-light);
-        margin-bottom: 2rem;
-      }
-      .hero-btns {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+      .hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.2rem,5vw,4.2rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+      .hero p { font-size: clamp(1rem,2vw,1.3rem); max-width: 620px; opacity: 0.92; margin-bottom: 0.7rem; }
+      .hero-price { font-size: 1.15rem; font-weight: 700; color: var(--accent-light); margin-bottom: 2rem; }
+      .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
       .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        background: var(--accent);
-        color: #fff;
-        padding: 0.85rem 2rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 1rem;
-        font-weight: 700;
-        font-family: "Nunito", sans-serif;
-        cursor: pointer;
-        transition:
-          background 0.3s,
-          transform 0.25s,
-          box-shadow 0.25s;
-        text-decoration: none;
+        display: inline-flex; align-items: center; gap: 0.45rem;
+        background: var(--accent); color: #fff; padding: 0.85rem 2rem;
+        border: none; border-radius: 50px; font-size: 1rem; font-weight: 700;
+        font-family: "Nunito", sans-serif; cursor: pointer;
+        transition: background 0.3s, transform 0.25s, box-shadow 0.25s; text-decoration: none;
       }
-      .btn:hover {
-        background: #b07a2a;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
-      }
-      .btn-outline {
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.7);
-        color: #fff;
-      }
-      .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: translateY(-2px);
-      }
+      .btn:hover { background: #b07a2a; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+      .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.7); color: #fff; }
+      .btn-outline:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
 
       .proximity-strip {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-        padding: 1.5rem 5%;
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(8px);
+        display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+        padding: 1.5rem 5%; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px);
       }
-      .prox-badge {
-        display: flex;
-        align-items: center;
-        gap: 0.55rem;
-        color: #fff;
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-      .prox-badge i {
-        color: var(--accent-light);
-        font-size: 1.1rem;
-      }
+      .prox-badge { display: flex; align-items: center; gap: 0.55rem; color: #fff; font-size: 0.95rem; font-weight: 600; }
+      .prox-badge i { color: var(--accent-light); font-size: 1.1rem; }
 
-      /* SECTIONS */
-      .section-title {
-        text-align: center;
-        margin: 0 0 0.5rem;
-        font-family: "Playfair Display", serif;
-        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-        color: var(--primary);
-      }
-      .section-sub {
-        text-align: center;
-        color: var(--text-muted);
-        margin-bottom: 2.8rem;
-        font-size: 1rem;
-      }
-      .section-wrap {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4.5rem 2rem;
-      }
+      .section-title { text-align: center; margin: 0 0 0.5rem; font-family: "Playfair Display", serif; font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--primary); }
+      .section-sub { text-align: center; color: var(--text-muted); margin-bottom: 2.8rem; font-size: 1rem; }
+      .section-wrap { max-width: 1200px; margin: 0 auto; padding: 4.5rem 2rem; }
 
-      /* USP */
-      .usp-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-      }
-      .usp-card {
-        background: var(--card-bg);
-        border-radius: 14px;
-        padding: 1.8rem 1.4rem;
-        text-align: center;
-        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
-        border: 1px solid var(--border);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-      }
-      .usp-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-      }
-      .usp-icon {
-        font-size: 2.4rem;
-        margin-bottom: 0.8rem;
-      }
-      .usp-card h4 {
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.4rem;
-      }
-      .usp-card p {
-        font-size: 0.88rem;
-        color: var(--text-muted);
-      }
+      .usp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+      .usp-card { background: var(--card-bg); border-radius: 14px; padding: 1.8rem 1.4rem; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,0.08); border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; }
+      .usp-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+      .usp-icon { font-size: 2.4rem; margin-bottom: 0.8rem; }
+      .usp-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.4rem; }
+      .usp-card p { font-size: 0.88rem; color: var(--text-muted); }
 
-      /* HOUSES */
-      .houses-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-        gap: 2rem;
-      }
-      .house-card {
-        background: var(--card-bg);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-      }
-      .house-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
-      }
-      .house-img-wrap {
-        position: relative;
-        overflow: hidden;
-        height: 240px;
-      }
-      .house-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: pointer;
-        transition: transform 0.45s;
-      }
-      .house-img:hover {
-        transform: scale(1.05);
-      }
-      .house-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        background: var(--accent);
-        color: #fff;
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 0.3rem 0.8rem;
-        border-radius: 50px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      .gallery-hint {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background: rgba(0, 0, 0, 0.55);
-        color: #fff;
-        font-size: 0.78rem;
-        font-weight: 600;
-        padding: 0.25rem 0.7rem;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-        pointer-events: none;
-      }
-      .house-info {
-        padding: 1.6rem;
-      }
-      .house-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.4rem;
-        color: var(--primary);
-        margin-bottom: 0.4rem;
-      }
-      .house-desc {
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-      }
-      .house-features {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1.2rem;
-      }
-      .feat-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
-        background: #eef5e6;
-        color: var(--primary-light);
-        font-size: 0.78rem;
-        font-weight: 700;
-        padding: 0.25rem 0.7rem;
-        border-radius: 50px;
-      }
-      .house-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-      }
-      .house-price {
-        font-size: 1.3rem;
-        font-weight: 800;
-        color: var(--accent);
-      }
-      .house-price span {
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: var(--text-muted);
-      }
-      .book-hint {
-        font-size: 0.78rem;
-        color: var(--text-muted);
-        margin-top: 0.3rem;
-      }
+      .houses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2rem; }
+      .house-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,0.09); transition: transform 0.3s, box-shadow 0.3s; }
+      .house-card:hover { transform: translateY(-8px); box-shadow: 0 14px 36px rgba(0,0,0,0.14); }
+      .house-img-wrap { position: relative; overflow: hidden; height: 240px; }
+      .house-img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: transform 0.45s; }
+      .house-img:hover { transform: scale(1.05); }
+      .house-badge { position: absolute; top: 12px; left: 12px; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
+      .gallery-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 50px; display: flex; align-items: center; gap: 0.35rem; pointer-events: none; }
+      .house-info { padding: 1.6rem; }
+      .house-title { font-family: "Playfair Display", serif; font-size: 1.4rem; color: var(--primary); margin-bottom: 0.4rem; }
+      .house-desc { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem; }
+      .house-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+      .feat-tag { display: inline-flex; align-items: center; gap: 0.3rem; background: #eef5e6; color: var(--primary-light); font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 50px; }
+      .house-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+      .house-price { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+      .house-price span { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+      .book-hint { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+      .price-tiers { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.7; }
+      .price-tiers span { display: block; }
+      .price-tiers .tier-lower { color: var(--primary-light); font-weight: 700; }
 
-      /* INCLUDED */
-      .included-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        gap: 1.2rem;
-      }
-      .included-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.9rem;
-        background: var(--card-bg);
+      .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+      .included-item { display: flex; align-items: flex-start; gap: 0.9rem; background: var(--card-bg); border-radius: 12px; padding: 1.2rem 1.4rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid var(--primary-light); }
+      .included-item i { color: var(--primary-light); font-size: 1.3rem; margin-top: 0.1rem; flex-shrink: 0; }
+      .included-item strong { font-weight: 700; font-size: 0.95rem; display: block; margin-bottom: 0.15rem; }
+      .included-item p { font-size: 0.83rem; color: var(--text-muted); }
+
+      .forwhom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+      .forwhom-card { background: var(--card-bg); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,0.08); transition: transform 0.3s; }
+      .forwhom-card:hover { transform: translateY(-5px); }
+      .forwhom-emoji { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
+      .forwhom-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+      .forwhom-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+      .service-card { background: var(--card-bg); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,0.07); }
+      .service-icon { font-size: 2.8rem; color: var(--accent); margin-bottom: 0.9rem; }
+      .service-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--primary); }
+      .service-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+      .nearby-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; }
+      .nearby-item { background: var(--card-bg); border-radius: 14px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+      .nearby-item .ni-icon { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
+      .nearby-item strong { font-size: 0.95rem; color: var(--primary); font-weight: 700; display: block; margin-bottom: 0.25rem; }
+      .nearby-item span { font-size: 0.8rem; color: var(--text-muted); }
+
+      .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+      .review-card { background: var(--card-bg); border-radius: 16px; padding: 1.8rem; box-shadow: 0 3px 14px rgba(0,0,0,0.08); position: relative; }
+      .review-card::before { content: '"'; font-family: "Playfair Display", serif; font-size: 5rem; color: var(--primary-light); opacity: 0.12; position: absolute; top: 0.5rem; left: 1.2rem; line-height: 1; }
+      .review-stars { color: var(--accent); margin-bottom: 0.7rem; font-size: 0.9rem; }
+      .review-text { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.55; }
+      .review-author { display: flex; align-items: center; gap: 0.8rem; }
+      .review-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--primary-light); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+      .review-author-info strong { font-size: 0.92rem; display: block; }
+      .review-author-info span { font-size: 0.78rem; color: var(--text-muted); }
+
+      .location-wrap { display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; }
+      .location-info { flex: 1; min-width: 280px; }
+      .location-title { font-family: "Playfair Display", serif; font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+      .location-address { margin-bottom: 1.2rem; font-size: 1rem; color: var(--text-muted); }
+      .rating { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+      .stars { color: var(--accent); }
+      .location-map { flex: 1; min-width: 280px; height: 380px; border-radius: 14px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.12); }
+      .location-map iframe { width: 100%; height: 100%; border: none; }
+
+      .faq-list { max-width: 760px; margin: 0 auto; }
+      .faq-item { background: var(--card-bg); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+      .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 1.2rem 1.5rem; font-family: "Nunito", sans-serif; font-size: 1rem; font-weight: 700; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+      .faq-question i { transition: transform 0.3s; flex-shrink: 0; }
+      .faq-item.open .faq-question i { transform: rotate(180deg); }
+      .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: 0.92rem; color: var(--text-muted); padding: 0 1.5rem; }
+      .faq-item.open .faq-answer { max-height: 200px; padding: 0 1.5rem 1.2rem; }
+
+      #contact { background: linear-gradient(135deg, var(--primary) 0%, #2a4510 100%); color: #fff; padding: 4.5rem 2rem; text-align: center; }
+      .contact-title { font-family: "Playfair Display", serif; font-size: 2.2rem; margin-bottom: 0.7rem; }
+      .contact-phone { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+      .contact-phone a { color: #fff; text-decoration: none; }
+      .contact-phone a:hover { color: var(--accent-light); }
+      .social-links { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+      .social-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 1rem; font-weight: 700; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 0.6rem 1.2rem; border-radius: 50px; text-decoration: none; transition: background 0.3s, transform 0.25s; }
+      .social-link:hover { background: rgba(255,255,255,0.28); transform: translateY(-2px); }
+
+      footer { background: #1e1e1e; color: rgba(255,255,255,0.6); text-align: center; padding: 1.8rem; font-size: 0.85rem; }
+
+      .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; }
+      .modal-content { background: var(--card-bg); padding: 2.2rem; border-radius: 16px; width: 100%; max-width: 480px; box-shadow: 0 10px 40px rgba(0,0,0,0.35); position: relative; max-height: 90vh; overflow-y: auto; }
+      .close-modal { position: absolute; top: 1rem; right: 1.2rem; font-size: 1.6rem; cursor: pointer; color: var(--text-muted); line-height: 1; background: none; border: none; }
+      .booking-title { font-family: "Playfair Display", serif; font-size: 1.6rem; color: var(--primary); text-align: center; margin-bottom: 0.4rem; }
+      .booking-subtitle { text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+      .booking-guarantee { display: flex; align-items: center; gap: 0.6rem; background: #eef5e6; border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 1.4rem; font-size: 0.85rem; color: var(--primary-light); font-weight: 600; }
+      .booking-guarantee i { font-size: 1.1rem; flex-shrink: 0; }
+      .booking-form { display: flex; flex-direction: column; gap: 0.9rem; }
+      .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+      .form-group label { font-weight: 700; font-size: 0.9rem; }
+      .form-group input, .form-group select { padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 10px; font-size: 0.95rem; font-family: "Nunito", sans-serif; transition: border-color 0.25s; background: #fafaf7; }
+      .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary-light); background: #fff; }
+      .form-or { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin: 0.5rem 0; position: relative; }
+      .form-or::before, .form-or::after { content: ""; position: absolute; top: 50%; width: 38%; height: 1px; background: var(--border); }
+      .form-or::before { left: 0; }
+      .form-or::after { right: 0; }
+      .quick-contacts { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+      .quick-btn { flex: 1; min-width: 120px; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: transform 0.25s, box-shadow 0.25s; }
+      .quick-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+      .quick-tg { background: #0088cc; color: #fff; }
+      .quick-vb { background: #665cac; color: #fff; }
+
+      /* DYNAMIC PRICE BOX */
+      .price-calc-box {
+        background: linear-gradient(135deg, #eef5e6, #f5f2ec);
+        border: 1.5px solid var(--primary-light);
         border-radius: 12px;
-        padding: 1.2rem 1.4rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-        border-left: 4px solid var(--primary-light);
-      }
-      .included-item i {
-        color: var(--primary-light);
-        font-size: 1.3rem;
-        margin-top: 0.1rem;
-        flex-shrink: 0;
-      }
-      .included-item strong {
-        font-weight: 700;
-        font-size: 0.95rem;
-        display: block;
-        margin-bottom: 0.15rem;
-      }
-      .included-item p {
-        font-size: 0.83rem;
-        color: var(--text-muted);
-      }
-
-      /* FOR WHOM */
-      .forwhom-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-      }
-      .forwhom-card {
-        background: var(--card-bg);
-        border-radius: 16px;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s;
-      }
-      .forwhom-card:hover {
-        transform: translateY(-5px);
-      }
-      .forwhom-emoji {
-        font-size: 3rem;
-        margin-bottom: 0.8rem;
-        display: block;
-      }
-      .forwhom-card h4 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-      .forwhom-card p {
-        font-size: 0.88rem;
-        color: var(--text-muted);
-      }
-
-      /* SERVICES */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-      }
-      .service-card {
-        background: var(--card-bg);
-        border-radius: 14px;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
-      }
-      .service-icon {
-        font-size: 2.8rem;
-        color: var(--accent);
-        margin-bottom: 0.9rem;
-      }
-      .service-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-        color: var(--primary);
-      }
-      .service-card p {
-        font-size: 0.88rem;
-        color: var(--text-muted);
-      }
-
-      /* NEARBY */
-      .nearby-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 1.2rem;
-      }
-      .nearby-item {
-        background: var(--card-bg);
-        border-radius: 14px;
-        padding: 1.5rem 1rem;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-      }
-      .nearby-item .ni-icon {
-        font-size: 2.2rem;
-        margin-bottom: 0.6rem;
-        display: block;
-      }
-      .nearby-item strong {
-        font-size: 0.95rem;
-        color: var(--primary);
-        font-weight: 700;
-        display: block;
-        margin-bottom: 0.25rem;
-      }
-      .nearby-item span {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
-
-      /* REVIEWS */
-      .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-      .review-card {
-        background: var(--card-bg);
-        border-radius: 16px;
-        padding: 1.8rem;
-        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
-        position: relative;
-      }
-      .review-card::before {
-        content: '"';
-        font-family: "Playfair Display", serif;
-        font-size: 5rem;
-        color: var(--primary-light);
-        opacity: 0.12;
-        position: absolute;
-        top: 0.5rem;
-        left: 1.2rem;
-        line-height: 1;
-      }
-      .review-stars {
-        color: var(--accent);
-        margin-bottom: 0.7rem;
-        font-size: 0.9rem;
-      }
-      .review-text {
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-        line-height: 1.55;
-      }
-      .review-author {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-      }
-      .review-avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--primary-light);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-      }
-      .review-author-info strong {
-        font-size: 0.92rem;
-        display: block;
-      }
-      .review-author-info span {
-        font-size: 0.78rem;
-        color: var(--text-muted);
-      }
-
-      /* LOCATION */
-      .location-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2.5rem;
-        align-items: flex-start;
-      }
-      .location-info {
-        flex: 1;
-        min-width: 280px;
-      }
-      .location-title {
-        font-family: "Playfair Display", serif;
-        font-size: 2rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-      }
-      .location-address {
-        margin-bottom: 1.2rem;
-        font-size: 1rem;
-        color: var(--text-muted);
-      }
-      .rating {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .stars {
-        color: var(--accent);
-      }
-      .location-map {
-        flex: 1;
-        min-width: 280px;
-        height: 380px;
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
-      }
-      .location-map iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      /* FAQ */
-      .faq-list {
-        max-width: 760px;
-        margin: 0 auto;
-      }
-      .faq-item {
-        background: var(--card-bg);
-        border-radius: 12px;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      }
-      .faq-question {
-        width: 100%;
-        background: none;
-        border: none;
-        text-align: left;
-        padding: 1.2rem 1.5rem;
-        font-family: "Nunito", sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--primary);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-      }
-      .faq-question i {
-        transition: transform 0.3s;
-        flex-shrink: 0;
-      }
-      .faq-item.open .faq-question i {
-        transform: rotate(180deg);
-      }
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition:
-          max-height 0.4s ease,
-          padding 0.3s;
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        padding: 0 1.5rem;
-      }
-      .faq-item.open .faq-answer {
-        max-height: 200px;
-        padding: 0 1.5rem 1.2rem;
-      }
-
-      /* CONTACT */
-      #contact {
-        background: linear-gradient(135deg, var(--primary) 0%, #2a4510 100%);
-        color: #fff;
-        padding: 4.5rem 2rem;
-        text-align: center;
-      }
-      .contact-title {
-        font-family: "Playfair Display", serif;
-        font-size: 2.2rem;
-        margin-bottom: 0.7rem;
-      }
-      .contact-phone {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      .contact-phone a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .contact-phone a:hover {
-        color: var(--accent-light);
-      }
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-      }
-      .social-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 700;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        padding: 0.6rem 1.2rem;
-        border-radius: 50px;
-        text-decoration: none;
-        transition:
-          background 0.3s,
-          transform 0.25s;
-      }
-      .social-link:hover {
-        background: rgba(255, 255, 255, 0.28);
-        transform: translateY(-2px);
-      }
-
-      footer {
-        background: #1e1e1e;
-        color: rgba(255, 255, 255, 0.6);
-        text-align: center;
-        padding: 1.8rem;
-        font-size: 0.85rem;
-      }
-
-      /* MODALS */
-      .modal {
+        padding: 1rem 1.2rem;
         display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.72);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
       }
-      .modal-content {
-        background: var(--card-bg);
-        padding: 2.2rem;
-        border-radius: 16px;
-        width: 100%;
-        max-width: 480px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-        position: relative;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .close-modal {
-        position: absolute;
-        top: 1rem;
-        right: 1.2rem;
-        font-size: 1.6rem;
-        cursor: pointer;
-        color: var(--text-muted);
-        line-height: 1;
-        background: none;
-        border: none;
-      }
-      .booking-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.6rem;
-        color: var(--primary);
-        text-align: center;
-        margin-bottom: 0.4rem;
-      }
-      .booking-subtitle {
-        text-align: center;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin-bottom: 1.5rem;
-      }
-      .booking-guarantee {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        background: #eef5e6;
-        border-radius: 10px;
-        padding: 0.9rem 1.1rem;
-        margin-bottom: 1.4rem;
-        font-size: 0.85rem;
-        color: var(--primary-light);
-        font-weight: 600;
-      }
-      .booking-guarantee i {
-        font-size: 1.1rem;
-        flex-shrink: 0;
-      }
-      .booking-form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-      }
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-      }
-      .form-group label {
-        font-weight: 700;
-        font-size: 0.9rem;
-      }
-      .form-group input,
-      .form-group select {
-        padding: 0.75rem 1rem;
-        border: 1.5px solid var(--border);
-        border-radius: 10px;
-        font-size: 0.95rem;
-        font-family: "Nunito", sans-serif;
-        transition: border-color 0.25s;
-        background: #fafaf7;
-      }
-      .form-group input:focus,
-      .form-group select:focus {
-        outline: none;
-        border-color: var(--primary-light);
-        background: #fff;
-      }
-      .form-or {
-        text-align: center;
-        color: var(--text-muted);
-        font-size: 0.85rem;
-        margin: 0.5rem 0;
-        position: relative;
-      }
-      .form-or::before,
-      .form-or::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 38%;
-        height: 1px;
-        background: var(--border);
-      }
-      .form-or::before {
-        left: 0;
-      }
-      .form-or::after {
-        right: 0;
-      }
-      .quick-contacts {
-        display: flex;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-      }
-      .quick-btn {
-        flex: 1;
-        min-width: 120px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.65rem 1rem;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.88rem;
-        text-decoration: none;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s;
-      }
-      .quick-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-      }
-      .quick-tg {
-        background: #0088cc;
-        color: #fff;
-      }
-      .quick-vb {
-        background: #665cac;
-        color: #fff;
-      }
+      .price-calc-box.visible { display: block; }
+      .price-calc-label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+      .price-calc-value { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+      .price-calc-value span { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+      .price-calc-note { font-size: 0.78rem; color: var(--primary-light); margin-top: 0.25rem; font-weight: 600; }
 
-      .success-message {
-        display: none;
-        text-align: center;
-        padding: 1.5rem 1rem;
-      }
-      .success-icon {
-        font-size: 4rem;
-        color: var(--primary);
-        margin-bottom: 0.8rem;
-      }
-      .success-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
-        color: var(--primary);
-        margin-bottom: 0.8rem;
-      }
-      .success-text {
-        color: var(--text-muted);
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-      }
+      .success-message { display: none; text-align: center; padding: 1.5rem 1rem; }
+      .success-icon { font-size: 4rem; color: var(--primary); margin-bottom: 0.8rem; }
+      .success-title { font-family: "Playfair Display", serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 0.8rem; }
+      .success-text { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
 
-      /* GALLERY MODAL */
-      .gallery-modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.93);
-        z-index: 2000;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-      }
-      .gallery-content {
-        position: relative;
-        width: 100%;
-        max-width: 1100px;
-      }
-      .close-gallery {
-        position: absolute;
-        top: -42px;
-        right: 0;
-        color: #fff;
-        font-size: 2.2rem;
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-      }
-      .gallery-counter {
-        position: absolute;
-        top: -42px;
-        left: 0;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-      .gallery-slides {
-        width: 100%;
-        height: 78vh;
-        overflow: hidden;
-        position: relative;
-        border-radius: 12px;
-      }
-      .gallery-slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: opacity 0.45s ease;
-      }
-      .gallery-slide.active {
-        opacity: 1;
-      }
-      .gallery-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      .gallery-nav {
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        padding: 0 0.5rem;
-        pointer-events: none;
-      }
-      .gallery-nav button {
-        pointer-events: all;
-        background: rgba(255, 255, 255, 0.18);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #fff;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        cursor: pointer;
-        backdrop-filter: blur(4px);
-        transition: background 0.25s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .gallery-nav button:hover {
-        background: rgba(255, 255, 255, 0.32);
-      }
-      .gallery-dots {
-        display: flex;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 1rem;
-      }
-      .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.35);
-        cursor: pointer;
-        transition:
-          background 0.25s,
-          transform 0.25s;
-      }
-      .dot.active {
-        background: #fff;
-        transform: scale(1.3);
-      }
+      .gallery-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 2000; justify-content: center; align-items: center; padding: 1rem; }
+      .gallery-content { position: relative; width: 100%; max-width: 1100px; }
+      .close-gallery { position: absolute; top: -42px; right: 0; color: #fff; font-size: 2.2rem; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: none; border: none; }
+      .gallery-counter { position: absolute; top: -42px; left: 0; color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600; }
+      .gallery-slides { width: 100%; height: 78vh; overflow: hidden; position: relative; border-radius: 12px; }
+      .gallery-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.45s ease; }
+      .gallery-slide.active { opacity: 1; }
+      .gallery-slide img { width: 100%; height: 100%; object-fit: contain; }
+      .gallery-nav { display: flex; justify-content: space-between; position: absolute; top: 50%; transform: translateY(-50%); width: 100%; padding: 0 0.5rem; pointer-events: none; }
+      .gallery-nav button { pointer-events: all; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.25); color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(4px); transition: background 0.25s; display: flex; align-items: center; justify-content: center; }
+      .gallery-nav button:hover { background: rgba(255,255,255,0.32); }
+      .gallery-dots { display: flex; justify-content: center; gap: 6px; margin-top: 1rem; }
+      .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.25s, transform 0.25s; }
+      .dot.active { background: #fff; transform: scale(1.3); }
 
-      /* STICKY BOOK */
-      .sticky-book {
-        position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        z-index: 400;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.7rem;
-      }
-      .sticky-book-btn {
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: 50px;
-        padding: 0.85rem 1.8rem;
-        font-family: "Nunito", sans-serif;
-        font-size: 1rem;
-        font-weight: 800;
-        cursor: pointer;
-        box-shadow: 0 6px 22px rgba(200, 145, 58, 0.55);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s;
-        animation: pulse 2.5s infinite;
-      }
-      .sticky-book-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(200, 145, 58, 0.65);
-        animation: none;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          box-shadow: 0 6px 22px rgba(200, 145, 58, 0.55);
-        }
-        50% {
-          box-shadow: 0 6px 30px rgba(200, 145, 58, 0.8);
-        }
-      }
-      .sticky-messenger-btns {
-        display: flex;
-        gap: 0.6rem;
-      }
-      .sticky-msg-btn {
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: #fff;
-        text-decoration: none;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-        transition: transform 0.25s;
-      }
-      .sticky-msg-btn:hover {
-        transform: scale(1.12);
-      }
-      .sticky-tg {
-        background: #0088cc;
-      }
-      .sticky-vb {
-        background: #665cac;
-      }
+      .sticky-book { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 400; display: flex; flex-direction: column; align-items: flex-end; gap: 0.7rem; }
+      .sticky-book-btn { background: var(--accent); color: #fff; border: none; border-radius: 50px; padding: 0.85rem 1.8rem; font-family: "Nunito", sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 22px rgba(200,145,58,0.55); display: flex; align-items: center; gap: 0.5rem; transition: transform 0.25s, box-shadow 0.25s; animation: pulse 2.5s infinite; }
+      .sticky-book-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(200,145,58,0.65); animation: none; }
+      @keyframes pulse { 0%, 100% { box-shadow: 0 6px 22px rgba(200,145,58,0.55); } 50% { box-shadow: 0 6px 30px rgba(200,145,58,0.8); } }
+      .sticky-messenger-btns { display: flex; gap: 0.6rem; }
+      .sticky-msg-btn { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #fff; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.25); transition: transform 0.25s; }
+      .sticky-msg-btn:hover { transform: scale(1.12); }
+      .sticky-tg { background: #0088cc; }
+      .sticky-vb { background: #665cac; }
 
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--primary);
-          padding: 1.2rem 5%;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .nav-links.active {
-          display: flex;
-        }
-        .nav-links li {
-          margin: 0.4rem 0;
-          text-align: center;
-        }
-        .mobile-menu-btn {
-          display: block;
-        }
-        .gallery-slides {
-          height: 55vh;
-        }
-        .proximity-strip {
-          gap: 1rem;
-        }
-        .location-map {
-          height: 280px;
-        }
-        .reviews-grid {
-          grid-template-columns: 1fr;
-        }
-        .sticky-book {
-          bottom: 1rem;
-          right: 1rem;
-        }
-        .sticky-book-btn {
-          font-size: 0.88rem;
-          padding: 0.75rem 1.4rem;
-        }
+        .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary); padding: 1.2rem 5%; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .nav-links.active { display: flex; }
+        .nav-links li { margin: 0.4rem 0; text-align: center; }
+        .mobile-menu-btn { display: block; }
+        .gallery-slides { height: 55vh; }
+        .proximity-strip { gap: 1rem; }
+        .location-map { height: 280px; }
+        .reviews-grid { grid-template-columns: 1fr; }
+        .sticky-book { bottom: 1rem; right: 1rem; }
+        .sticky-book-btn { font-size: 0.88rem; padding: 0.75rem 1.4rem; }
       }
     </style>
   </head>
   <body>
+
     <!-- STICKY -->
     <div class="sticky-book">
       <div class="sticky-messenger-btns">
-        <a
-          href="https://t.me/cozyhouse_slavsko"
-          target="_blank"
-          class="sticky-msg-btn sticky-tg"
-          title="Telegram"
-          ><i class="fab fa-telegram"></i
-        ></a>
-        <a
-          href="viber://chat?number=%2B380980998825"
-          class="sticky-msg-btn sticky-vb"
-          title="Viber"
-          ><i class="fab fa-viber"></i
-        ></a>
+        <a href="https://t.me/cozyhouse_slavsko" target="_blank" class="sticky-msg-btn sticky-tg" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="viber://chat?number=%2B380980998825" class="sticky-msg-btn sticky-vb" title="Viber"><i class="fab fa-viber"></i></a>
       </div>
       <button class="sticky-book-btn" onclick="openBookingModal()">
         <i class="fas fa-calendar-check"></i> Забронювати
@@ -1158,9 +270,7 @@
     <header>
       <nav id="mainNav">
         <a href="#" class="logo">Cozy<span>House</span></a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
         <ul class="nav-links" id="navLinks">
           <li><a href="#">Головна</a></li>
           <li><a href="#houses">Котеджі</a></li>
@@ -1170,49 +280,22 @@
           <li><a href="#contact">Контакти</a></li>
         </ul>
       </nav>
-
       <div class="hero">
-        <div class="hero-badge">
-          <i class="fas fa-mountain"></i> Карпати · Славсько
-        </div>
+        <div class="hero-badge"><i class="fas fa-mountain"></i> Карпати · Славсько</div>
         <h1>Будиночки в Карпатах<br />з чаном і видом на гори</h1>
-        <p>
-          Справжній відпочинок серед природи — каміни, затишок і жодної міської
-          метушні
-        </p>
-        <p class="hero-price">
-          від <strong>3 000 грн / ніч</strong> &nbsp;·&nbsp; передоплата лише
-          30%
-        </p>
+        <p>Справжній відпочинок серед природи — каміни, затишок і жодної міської метушні</p>
+        <p class="hero-price">від <strong>4 000 грн / ніч</strong> &nbsp;·&nbsp; передоплата лише 30%</p>
         <div class="hero-btns">
-          <a href="#houses" class="btn"
-            ><i class="fas fa-calendar-check"></i> Перевірити доступність</a
-          >
-          <a
-            href="https://t.me/cozyhouse_slavske"
-            target="_blank"
-            class="btn btn-outline"
-            ><i class="fab fa-telegram"></i> Telegram</a
-          >
+          <a href="#houses" class="btn"><i class="fas fa-calendar-check"></i> Перевірити доступність</a>
+          <a href="https://t.me/cozyhouse_slavske" target="_blank" class="btn btn-outline"><i class="fab fa-telegram"></i> Telegram</a>
         </div>
       </div>
-
       <div class="proximity-strip">
-        <div class="prox-badge">
-          <i class="fas fa-map-marker-alt"></i> Славсько, Львівська обл.
-        </div>
-        <div class="prox-badge">
-          <i class="fas fa-clock"></i> ~5 хв до центру
-        </div>
-        <div class="prox-badge">
-          <i class="fas fa-skiing"></i> ~10 хв до витягу
-        </div>
-        <div class="prox-badge">
-          <i class="fas fa-store"></i> Магазини поруч
-        </div>
-        <div class="prox-badge">
-          <i class="fas fa-car"></i> Власне паркування
-        </div>
+        <div class="prox-badge"><i class="fas fa-map-marker-alt"></i> Славсько, Львівська обл.</div>
+        <div class="prox-badge"><i class="fas fa-clock"></i> ~5 хв до центру</div>
+        <div class="prox-badge"><i class="fas fa-skiing"></i> ~10 хв до витягу</div>
+        <div class="prox-badge"><i class="fas fa-store"></i> Магазини поруч</div>
+        <div class="prox-badge"><i class="fas fa-car"></i> Власне паркування</div>
       </div>
     </header>
 
@@ -1220,40 +303,14 @@
     <section>
       <div class="section-wrap">
         <h2 class="section-title">Чому саме CozyHouse?</h2>
-        <p class="section-sub">
-          Ми не ще один котедж — ось що робить нас особливими
-        </p>
+        <p class="section-sub">Ми не ще один котедж — ось що робить нас особливими</p>
         <div class="usp-grid">
-          <div class="usp-card">
-            <div class="usp-icon">🛁</div>
-            <h4>Карпатський чан</h4>
-            <p>Гаряча купіль просто неба після гір — справжній релакс</p>
-          </div>
-          <div class="usp-card">
-            <div class="usp-icon">🏔</div>
-            <h4>Панорамний вид</h4>
-            <p>Вікна з видом на гори — прокидатись тут особливо приємно</p>
-          </div>
-          <div class="usp-card">
-            <div class="usp-icon">🔥</div>
-            <h4>Каміни у кожному</h4>
-            <p>Тепло, атмосфера і живий вогонь у вітальні</p>
-          </div>
-          <div class="usp-card">
-            <div class="usp-icon">🤫</div>
-            <h4>Тиша та приватність</h4>
-            <p>Окремі будиночки — без зайвих сусідів і шуму</p>
-          </div>
-          <div class="usp-card">
-            <div class="usp-icon">📸</div>
-            <h4>Інстаграмне місце</h4>
-            <p>Кожен куток — готовий кадр для вашої стрічки</p>
-          </div>
-          <div class="usp-card">
-            <div class="usp-icon">🎿</div>
-            <h4>Близько до витягу</h4>
-            <p>10 хв до підйомника — ідеально взимку та навесні</p>
-          </div>
+          <div class="usp-card"><div class="usp-icon">🛁</div><h4>Карпатський чан</h4><p>Гаряча купіль просто неба після гір — справжній релакс</p></div>
+          <div class="usp-card"><div class="usp-icon">🏔</div><h4>Панорамний вид</h4><p>Вікна з видом на гори — прокидатись тут особливо приємно</p></div>
+          <div class="usp-card"><div class="usp-icon">🔥</div><h4>Каміни у кожному</h4><p>Тепло, атмосфера і живий вогонь у вітальні</p></div>
+          <div class="usp-card"><div class="usp-icon">🤫</div><h4>Тиша та приватність</h4><p>Окремі будиночки — без зайвих сусідів і шуму</p></div>
+          <div class="usp-card"><div class="usp-icon">📸</div><h4>Інстаграмне місце</h4><p>Кожен куток — готовий кадр для вашої стрічки</p></div>
+          <div class="usp-card"><div class="usp-icon">🎿</div><h4>Близько до витягу</h4><p>10 хв до підйомника — ідеально взимку та навесні</p></div>
         </div>
       </div>
     </section>
@@ -1264,139 +321,90 @@
         <h2 class="section-title">Оберіть свій будиночок</h2>
         <p class="section-sub">Натисніть на фото, щоб переглянути галерею</p>
         <div class="houses-grid">
+
+          <!-- БУДИНОК 6 ОСІБ -->
           <div class="house-card">
             <div class="house-img-wrap">
-              <img
-                src="./img/big.JPG"
-                alt="Будинок на 6 осіб"
-                class="house-img"
-                data-house="6people"
-              />
+              <img src="./img/big.JPG" alt="Будинок на 6 осіб" class="house-img" data-house="6people" />
               <div class="house-badge">Великий</div>
-              <div class="gallery-hint">
-                <i class="fas fa-images"></i> 9 фото
-              </div>
+              <div class="gallery-hint"><i class="fas fa-images"></i> 9 фото</div>
             </div>
             <div class="house-info">
               <h3 class="house-title">Будинок «6 Осіб»</h3>
-              <p class="house-desc">
-                Стильна вітальня з каміном, проектор для фільмів, обладнана
-                кухня і затишні спальні — ідеально для великої компанії.
-              </p>
+              <p class="house-desc">Стильна вітальня з каміном, проектор для фільмів, обладнана кухня і затишні спальні — ідеально для великої компанії.</p>
               <div class="house-features">
-                <span class="feat-tag"
-                  ><i class="fas fa-users"></i> до 6 осіб</span
-                >
+                <span class="feat-tag"><i class="fas fa-users"></i> до 6 осіб</span>
                 <span class="feat-tag"><i class="fas fa-fire"></i> Камін</span>
-                <span class="feat-tag"
-                  ><i class="fas fa-film"></i> Проектор</span
-                >
+                <span class="feat-tag"><i class="fas fa-film"></i> Проектор</span>
                 <span class="feat-tag"><i class="fas fa-hot-tub"></i> Чан</span>
               </div>
               <div class="house-footer">
                 <div>
-                  <div class="house-price">6 000 грн <span>/ ніч</span></div>
-                  <div class="book-hint">Відповімо протягом 10 хв</div>
+                  <div class="house-price">8 000 грн <span>/ ніч</span></div>
+                  <div class="price-tiers">
+                    <span class="tier-lower">4 особи — 7 000 грн/ніч</span>
+                    <span class="tier-lower">2 особи — 6 000 грн/ніч</span>
+                  </div>
                 </div>
-                <button
-                  class="btn book-btn"
-                  data-house="Будинок '6 Осіб'"
-                  data-price="6000"
-                >
-                  Забронювати
-                </button>
+                <button class="btn book-btn" data-house="Будинок '6 Осіб'" data-price="8000">Забронювати</button>
               </div>
             </div>
           </div>
 
+          <!-- БУДИНОК 4 ОСОБИ -->
           <div class="house-card">
             <div class="house-img-wrap">
-              <img
-                src="./img/soso.JPG"
-                alt="Будинок на 4 особи"
-                class="house-img"
-                data-house="4people"
-              />
+              <img src="./img/soso.JPG" alt="Будинок на 4 особи" class="house-img" data-house="4people" />
               <div class="house-badge">Популярний</div>
-              <div class="gallery-hint">
-                <i class="fas fa-images"></i> 6 фото
-              </div>
+              <div class="gallery-hint"><i class="fas fa-images"></i> 6 фото</div>
             </div>
             <div class="house-info">
               <h3 class="house-title">Будинок «4 Особи»</h3>
-              <p class="house-desc">
-                Дерев'яний інтер'єр, затишний диван, кухня і тепла атмосфера —
-                для друзів або сімейного відпочинку.
-              </p>
+              <p class="house-desc">Дерев'яний інтер'єр, затишний диван, кухня і тепла атмосфера — для друзів або сімейного відпочинку.</p>
               <div class="house-features">
-                <span class="feat-tag"
-                  ><i class="fas fa-users"></i> до 4 осіб</span
-                >
-            
-                <span class="feat-tag"
-                  ><i class="fas fa-utensils"></i> Кухня</span
-                >
+                <span class="feat-tag"><i class="fas fa-users"></i> до 4 осіб</span>
+                <span class="feat-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                <span class="feat-tag"><i class="fas fa-hot-tub"></i> Чан</span>
+              </div>
+              <div class="house-footer">
+                <div>
+                  <div class="house-price">5 000 грн <span>/ ніч</span></div>
+                  <div class="price-tiers">
+                    <span class="tier-lower">для 2 осіб — 4 500 грн/ніч</span>
+                  </div>
+                </div>
+                <button class="btn book-btn" data-house="Будинок '4 Особи'" data-price="5000">Забронювати</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- БУДИНОК 2 ОСОБИ -->
+          <div class="house-card">
+            <div class="house-img-wrap">
+              <img src="./img/smoal.JPG" alt="Будинок на 2 особи" class="house-img" data-house="2people" />
+              <div class="house-badge">Романтик</div>
+              <div class="gallery-hint"><i class="fas fa-images"></i> 5 фото</div>
+            </div>
+            <div class="house-info">
+              <h3 class="house-title">Будинок «2 Особи»</h3>
+              <p class="house-desc">Ідеальне місце для двох — тиша, приватність, компактна кухня і справжній карпатський затишок.</p>
+              <div class="house-features">
+                <span class="feat-tag"><i class="fas fa-heart"></i> для пари</span>
+                <span class="feat-tag"><i class="fas fa-mountain"></i> Вид на гори</span>
                 <span class="feat-tag"><i class="fas fa-hot-tub"></i> Чан</span>
               </div>
               <div class="house-footer">
                 <div>
                   <div class="house-price">4 000 грн <span>/ ніч</span></div>
-                  <div class="book-hint">Відповімо протягом 10 хв</div>
+                  <div class="price-tiers">
+                    <span class="tier-lower">від 3 діб — 3 500 грн/ніч</span>
+                  </div>
                 </div>
-                <button
-                  class="btn book-btn"
-                  data-house="Будинок '4 Особи'"
-                  data-price="4000"
-                >
-                  Забронювати
-                </button>
+                <button class="btn book-btn" data-house="Будинок '2 Особи'" data-price="4000">Забронювати</button>
               </div>
             </div>
           </div>
 
-          <div class="house-card">
-            <div class="house-img-wrap">
-              <img
-                src="./img/smoal.JPG"
-                alt="Будинок на 2 особи"
-                class="house-img"
-                data-house="2people"
-              />
-              <div class="house-badge">Романтик</div>
-              <div class="gallery-hint">
-                <i class="fas fa-images"></i> 5 фото
-              </div>
-            </div>
-            <div class="house-info">
-              <h3 class="house-title">Будинок «2 Особи»</h3>
-              <p class="house-desc">
-                Ідеальне місце для двох — тиша, приватність, компактна кухня і
-                справжній карпатський затишок.
-              </p>
-              <div class="house-features">
-                <span class="feat-tag"
-                  ><i class="fas fa-heart"></i> для пари</span
-                
-                <span class="feat-tag"
-                  ><i class="fas fa-mountain"></i> Вид на гори</span
-                >
-                <span class="feat-tag"><i class="fas fa-hot-tub"></i> Чан</span>
-              </div>
-              <div class="house-footer">
-                <div>
-                  <div class="house-price">3 000 грн <span>/ ніч</span></div>
-                  <div class="book-hint">Відповімо протягом 10 хв</div>
-                </div>
-                <button
-                  class="btn book-btn"
-                  data-house="Будинок '2 Особи'"
-                  data-price="3000"
-                >
-                  Забронювати
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1407,42 +415,11 @@
         <h2 class="section-title">Що входить у ціну</h2>
         <p class="section-sub">Жодних прихованих платежів — все прозоро</p>
         <div class="included-grid">
-          <div class="included-item">
-            <i class="fas fa-bed"></i>
-            <div>
-              <strong>Постільна білизна</strong>
-              <p>Чиста та свіжа для кожного гостя</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <i class="fas fa-bath"></i>
-            <div>
-              <strong>Рушники</strong>
-              <p>Повний комплект для всіх мешканців</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <i class="fas fa-soap"></i>
-            <div>
-              <strong>Засоби гігієни</strong>
-              <p>Базовий набір санітарних засобів</p>
-            </div>
-          </div>
-
-          <div class="included-item">
-            <i class="fas fa-parking"></i>
-            <div>
-              <strong>Паркування</strong>
-              <p>Власне місце біля будиночка</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <i class="fas fa-wifi"></i>
-            <div>
-              <strong>Wi-Fi</strong>
-              <p>Безкоштовний інтернет у всіх будинках</p>
-            </div>
-          </div>
+          <div class="included-item"><i class="fas fa-bed"></i><div><strong>Постільна білизна</strong><p>Чиста та свіжа для кожного гостя</p></div></div>
+          <div class="included-item"><i class="fas fa-bath"></i><div><strong>Рушники</strong><p>Повний комплект для всіх мешканців</p></div></div>
+          <div class="included-item"><i class="fas fa-soap"></i><div><strong>Засоби гігієни</strong><p>Базовий набір санітарних засобів</p></div></div>
+          <div class="included-item"><i class="fas fa-parking"></i><div><strong>Паркування</strong><p>Власне місце біля будиночка</p></div></div>
+          <div class="included-item"><i class="fas fa-wifi"></i><div><strong>Wi-Fi</strong><p>Безкоштовний інтернет у всіх будинках</p></div></div>
         </div>
       </div>
     </section>
@@ -1453,26 +430,10 @@
         <h2 class="section-title">Для кого підійде</h2>
         <p class="section-sub">CozyHouse — для різних видів відпочинку</p>
         <div class="forwhom-grid">
-          <div class="forwhom-card">
-            <span class="forwhom-emoji">💑</span>
-            <h4>Для пар</h4>
-            <p>Романтичний відпочинок у тиші гір — чан, камін і двоє</p>
-          </div>
-          <div class="forwhom-card">
-            <span class="forwhom-emoji">👨‍👩‍👧‍👦</span>
-            <h4>Для сімей</h4>
-            <p>Простір, природа і безпека — діти обожнюють Карпати</p>
-          </div>
-          <div class="forwhom-card">
-            <span class="forwhom-emoji">🧑‍🤝‍🧑</span>
-            <h4>Для друзів</h4>
-            <p>Велика компанія, вечірки біля каміна і спільні пригоди</p>
-          </div>
-          <div class="forwhom-card">
-            <span class="forwhom-emoji">🎿</span>
-            <h4>Для лижників</h4>
-            <p>10 хв до витягу — зранку на схилі, ввечері в чані</p>
-          </div>
+          <div class="forwhom-card"><span class="forwhom-emoji">💑</span><h4>Для пар</h4><p>Романтичний відпочинок у тиші гір — чан, камін і двоє</p></div>
+          <div class="forwhom-card"><span class="forwhom-emoji">👨‍👩‍👧‍👦</span><h4>Для сімей</h4><p>Простір, природа і безпека — діти обожнюють Карпати</p></div>
+          <div class="forwhom-card"><span class="forwhom-emoji">🧑‍🤝‍🧑</span><h4>Для друзів</h4><p>Велика компанія, вечірки біля каміна і спільні пригоди</p></div>
+          <div class="forwhom-card"><span class="forwhom-emoji">🎿</span><h4>Для лижників</h4><p>10 хв до витягу — зранку на схилі, ввечері в чані</p></div>
         </div>
       </div>
     </section>
@@ -1483,36 +444,10 @@
         <h2 class="section-title">Додаткові послуги</h2>
         <p class="section-sub">Щоб відпочинок був ще яскравішим</p>
         <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-spa"></i></div>
-            <h3 class="service-title">Карпатський чан</h3>
-            <p>
-              Справжній релакс після активного дня в горах. Гарячий чан під
-              зоряним небом.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-snowboarding"></i></div>
-            <h3 class="service-title">Катання на лижах</h3>
-            <p>
-              Прокат обладнання та інструктори для початківців і досвідчених.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-hiking"></i></div>
-            <h3 class="service-title">Походи в гори</h3>
-            <p>
-              Екскурсії з досвідченими гідами до найкрасивіших куточків Карпат.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-car"></i></div>
-            <h3 class="service-title">Джипінг</h3>
-            <p>
-              Пригоди на позашляховику по гірських дорогах — адреналін
-              гарантовано.
-            </p>
-          </div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-spa"></i></div><h3 class="service-title">Карпатський чан</h3><p>Справжній релакс після активного дня в горах. Гарячий чан під зоряним небом.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-snowboarding"></i></div><h3 class="service-title">Катання на лижах</h3><p>Прокат обладнання та інструктори для початківців і досвідчених.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-hiking"></i></div><h3 class="service-title">Походи в гори</h3><p>Екскурсії з досвідченими гідами до найкрасивіших куточків Карпат.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-car"></i></div><h3 class="service-title">Джипінг</h3><p>Пригоди на позашляховику по гірських дорогах — адреналін гарантовано.</p></div>
         </div>
       </div>
     </section>
@@ -1523,30 +458,12 @@
         <h2 class="section-title">Що поруч</h2>
         <p class="section-sub">Все необхідне — у кількох хвилинах їзди</p>
         <div class="nearby-grid">
-          <div class="nearby-item">
-            <span class="ni-icon">⛷</span><strong>Підйомники</strong
-            ><span>~10 хв на авто</span>
-          </div>
-          <div class="nearby-item">
-            <span class="ni-icon">🏘</span><strong>Центр Славська</strong
-            ><span>~5 хв на авто</span>
-          </div>
-          <div class="nearby-item">
-            <span class="ni-icon">🍽</span><strong>Кафе та ресторани</strong
-            ><span>у центрі селища</span>
-          </div>
-          <div class="nearby-item">
-            <span class="ni-icon">🛒</span><strong>Супермаркет</strong
-            ><span>Рукавичка поруч</span>
-          </div>
-          <div class="nearby-item">
-            <span class="ni-icon">🌊</span><strong>Річка Славка</strong
-            ><span>прогулянки вздовж води</span>
-          </div>
-          <div class="nearby-item">
-            <span class="ni-icon">🏔</span><strong>Стежки в гори</strong
-            ><span>прямо від будинку</span>
-          </div>
+          <div class="nearby-item"><span class="ni-icon">⛷</span><strong>Підйомники</strong><span>~10 хв на авто</span></div>
+          <div class="nearby-item"><span class="ni-icon">🏘</span><strong>Центр Славська</strong><span>~5 хв на авто</span></div>
+          <div class="nearby-item"><span class="ni-icon">🍽</span><strong>Кафе та ресторани</strong><span>у центрі селища</span></div>
+          <div class="nearby-item"><span class="ni-icon">🛒</span><strong>Супермаркет</strong><span>Рукавичка поруч</span></div>
+          <div class="nearby-item"><span class="ni-icon">🌊</span><strong>Річка Славка</strong><span>прогулянки вздовж води</span></div>
+          <div class="nearby-item"><span class="ni-icon">🏔</span><strong>Стежки в гори</strong><span>прямо від будинку</span></div>
         </div>
       </div>
     </section>
@@ -1555,100 +472,14 @@
     <section id="reviews">
       <div class="section-wrap">
         <h2 class="section-title">Відгуки гостей</h2>
-        <p class="section-sub">
-          ★★★★★ 5.0 — середня оцінка за всіма бронюваннями
-        </p>
+        <p class="section-sub">★★★★★ 5.0 — середня оцінка за всіма бронюваннями</p>
         <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Були з чоловіком на 3 ночі — це просто казка! Будиночок маленький,
-              але дуже затишний. Чан вночі під зорями — це окремий досвід.
-              Однозначно повернемось!
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">О</div>
-              <div class="review-author-info">
-                <strong>Олена Максименко</strong
-                ><span>Будинок «2 Особи» · лютий 2025</span>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Приїжджали компанією 5 людей на великий будинок. Камін, проектор,
-              чан — все супер! Господарі дуже привітні, відповіли одразу. Місце
-              шикарне, ще й 10 хв до підйомника.
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">В</div>
-              <div class="review-author-info">
-                <strong>Василь Коваль</strong
-                ><span>Будинок «6 Осіб» · січень 2025</span>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Відпочивали сім'єю з двома дітьми. Чисто, зручно, є все необхідне.
-              Діти в захваті від гір і природи. Рекомендую всім, хто шукає
-              спокійний відпочинок в Карпатах.
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">Н</div>
-              <div class="review-author-info">
-                <strong>Наталія Шевченко</strong
-                ><span>Будинок «4 Особи» · грудень 2024</span>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Ціна повністю відповідає якості. Будиночок — мов з обкладинки
-              журналу. Фото не передають всю красу виду з вікна. Бронювали через
-              Telegram — все дуже швидко!
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">А</div>
-              <div class="review-author-info">
-                <strong>Андрій Литвин</strong
-                ><span>Будинок «2 Особи» · жовтень 2024</span>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Третій раз приїжджаємо — і щоразу краще! Дуже подобається
-              атмосфера: тихо, природа, жодного стресу. Вже всім друзям
-              порекомендували CozyHouse.
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">М</div>
-              <div class="review-author-info">
-                <strong>Маріанна Стець</strong
-                ><span>Будинок «4 Особи» · серпень 2024</span>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              Поїхали спонтанно, написали в Telegram — за 5 хвилин вже знали що
-              є вільно. Дуже зручно! Будинок чистий, фото відповідають
-              реальності, чан — просто кайф.
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">Д</div>
-              <div class="review-author-info">
-                <strong>Дмитро Павленко</strong
-                ><span>Будинок «6 Осіб» · березень 2025</span>
-              </div>
-            </div>
-          </div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Були з чоловіком на 3 ночі — це просто казка! Будиночок маленький, але дуже затишний. Чан вночі під зорями — це окремий досвід. Однозначно повернемось!</p><div class="review-author"><div class="review-avatar">О</div><div class="review-author-info"><strong>Олена Максименко</strong><span>Будинок «2 Особи» · лютий 2025</span></div></div></div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Приїжджали компанією 5 людей на великий будинок. Камін, проектор, чан — все супер! Господарі дуже привітні, відповіли одразу. Місце шикарне, ще й 10 хв до підйомника.</p><div class="review-author"><div class="review-avatar">В</div><div class="review-author-info"><strong>Василь Коваль</strong><span>Будинок «6 Осіб» · січень 2025</span></div></div></div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Відпочивали сім'єю з двома дітьми. Чисто, зручно, є все необхідне. Діти в захваті від гір і природи. Рекомендую всім, хто шукає спокійний відпочинок в Карпатах.</p><div class="review-author"><div class="review-avatar">Н</div><div class="review-author-info"><strong>Наталія Шевченко</strong><span>Будинок «4 Особи» · грудень 2024</span></div></div></div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Ціна повністю відповідає якості. Будиночок — мов з обкладинки журналу. Фото не передають всю красу виду з вікна. Бронювали через Telegram — все дуже швидко!</p><div class="review-author"><div class="review-avatar">А</div><div class="review-author-info"><strong>Андрій Литвин</strong><span>Будинок «2 Особи» · жовтень 2024</span></div></div></div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Третій раз приїжджаємо — і щоразу краще! Дуже подобається атмосфера: тихо, природа, жодного стресу. Вже всім друзям порекомендували CozyHouse.</p><div class="review-author"><div class="review-avatar">М</div><div class="review-author-info"><strong>Маріанна Стець</strong><span>Будинок «4 Особи» · серпень 2024</span></div></div></div>
+          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Поїхали спонтанно, написали в Telegram — за 5 хвилин вже знали що є вільно. Дуже зручно! Будинок чистий, фото відповідають реальності, чан — просто кайф.</p><div class="review-author"><div class="review-avatar">Д</div><div class="review-author-info"><strong>Дмитро Павленко</strong><span>Будинок «6 Осіб» · березень 2025</span></div></div></div>
         </div>
       </div>
     </section>
@@ -1659,77 +490,18 @@
         <div class="location-wrap">
           <div class="location-info">
             <h2 class="location-title">Де ми знаходимось</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.2rem">
-              Оточені горами, лісами і чистим повітрям — далеко від міської
-              метушні.
-            </p>
-            <p class="location-address">
-              <i
-                class="fas fa-map-marker-alt"
-                style="color: var(--accent); margin-right: 0.4rem"
-              ></i>
-              Славсько, вул. Устияновича, Львівська обл., 82660
-            </p>
-            <div class="rating">
-              <div class="stars">★★★★★</div>
-              <span style="font-weight: 700">5,0 (6 відгуків)</span>
+            <p style="color: var(--text-muted); margin-bottom: 1.2rem">Оточені горами, лісами і чистим повітрям — далеко від міської метушні.</p>
+            <p class="location-address"><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 0.4rem"></i>Славсько, вул. Устияновича, Львівська обл., 82660</p>
+            <div class="rating"><div class="stars">★★★★★</div><span style="font-weight: 700">5,0 (6 відгуків)</span></div>
+            <div style="display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600;"><i class="fas fa-clock" style="color: var(--accent)"></i> ~5 хв до центру Славська</div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600;"><i class="fas fa-skiing" style="color: var(--accent)"></i> ~10 хв до гірськолижного витягу</div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600;"><i class="fas fa-train" style="color: var(--accent)"></i> ~2 км до залізничної станції</div>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 0.7rem;
-                margin-bottom: 1.5rem;
-              "
-            >
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 0.6rem;
-                  font-weight: 600;
-                "
-              >
-                <i class="fas fa-clock" style="color: var(--accent)"></i> ~5 хв
-                до центру Славська
-              </div>
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 0.6rem;
-                  font-weight: 600;
-                "
-              >
-                <i class="fas fa-skiing" style="color: var(--accent)"></i> ~10
-                хв до гірськолижного витягу
-              </div>
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 0.6rem;
-                  font-weight: 600;
-                "
-              >
-                <i class="fas fa-train" style="color: var(--accent)"></i> ~2 км
-                до залізничної станції
-              </div>
-            </div>
-            <a
-              href="https://www.google.com/maps/place/Slavsko,+Lviv+Oblast,+82660"
-              class="btn"
-              target="_blank"
-              ><i class="fas fa-map"></i> Відкрити карту</a
-            >
+            <a href="https://www.google.com/maps/place/Slavsko,+Lviv+Oblast,+82660" class="btn" target="_blank"><i class="fas fa-map"></i> Відкрити карту</a>
           </div>
           <div class="location-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2615.116964098905!2d23.44755107672289!3d48.78426007130541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47387f547c320d7f%3A0xc3f0b2f5b8f6c4d0!2z0KHRg9C70L7QstCw0L3QuNC5INC60L7RjNCw0LvRjNC90L3QvtC5!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2615.116964098905!2d23.44755107672289!3d48.78426007130541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47387f547c320d7f%3A0xc3f0b2f5b8f6c4d0!2z0KHRg9C70L7QstCw0L3QuNC5INC60L7RjNCw0LvRjNC90L3QvtC5!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -1739,68 +511,14 @@
     <section id="faq">
       <div class="section-wrap">
         <h2 class="section-title">Часті питання</h2>
-        <p class="section-sub">
-          Є ще питання? Пишіть у Telegram — відповімо швидко
-        </p>
+        <p class="section-sub">Є ще питання? Пишіть у Telegram — відповімо швидко</p>
         <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question">
-              Як відбувається бронювання? <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Заповніть форму або напишіть нам у Telegram / Viber. Ми зв'яжемось
-              протягом 10 хвилин для підтвердження. Бронювання підтверджується
-              після передоплати 30%.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              Чи потрібна передоплата? <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Так, для підтвердження бронювання — 30% від вартості проживання.
-              Решту оплачуєте при заселенні готівкою або на картку.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              Що входить у ціну? <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Оренда будинку, постільна білизна, рушники, базові санітарні
-              засоби, фінальне прибирання та паркування. Чан — за окремою
-              домовленістю.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              Чи можна скасувати бронювання? <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Скасування або зміна дат — за 3 дні до заїзду з поверненням
-              передоплати. При пізнішому скасуванні передоплата не повертається.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              О котрій годині заселення та виселення?
-              <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Заселення — з 14:00, виселення — до 12:00. Ранній заїзд або пізній
-              виїзд можливі за домовленістю.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              Чи є обмеження по кількості гостей?
-              <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="faq-answer">
-              Максимальна кількість вказана в описі кожного будинку. Додаткові
-              гості — за окремою домовленістю та доплатою.
-            </div>
-          </div>
+          <div class="faq-item"><button class="faq-question">Як відбувається бронювання? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Заповніть форму або напишіть нам у Telegram / Viber. Ми зв'яжемось протягом 10 хвилин для підтвердження. Бронювання підтверджується після передоплати 30%.</div></div>
+          <div class="faq-item"><button class="faq-question">Чи потрібна передоплата? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Так, для підтвердження бронювання — 30% від вартості проживання. Решту оплачуєте при заселенні готівкою або на картку.</div></div>
+          <div class="faq-item"><button class="faq-question">Що входить у ціну? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Оренда будинку, постільна білизна, рушники, базові санітарні засоби, фінальне прибирання та паркування. Чан — за окремою домовленістю.</div></div>
+          <div class="faq-item"><button class="faq-question">Чи можна скасувати бронювання? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Скасування або зміна дат — за 3 дні до заїзду з поверненням передоплати. При пізнішому скасуванні передоплата не повертається.</div></div>
+          <div class="faq-item"><button class="faq-question">О котрій годині заселення та виселення? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Заселення — з 14:00, виселення — до 12:00. Ранній заїзд або пізній виїзд можливі за домовленістю.</div></div>
+          <div class="faq-item"><button class="faq-question">Чи є обмеження по кількості гостей? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Максимальна кількість вказана в описі кожного будинку. Додаткові гості — за окремою домовленістю та доплатою.</div></div>
         </div>
       </div>
     </section>
@@ -1808,35 +526,13 @@
     <!-- CONTACT -->
     <section id="contact">
       <h2 class="contact-title">Зв'яжіться з нами</h2>
-      <p style="opacity: 0.8; margin-bottom: 1.2rem">
-        Відповідаємо швидко — зазвичай до 10 хвилин
-      </p>
-      <p class="contact-phone">
-        <i class="fas fa-phone"></i>
-        <a href="tel:+380980998825">+380 98 099 88 25</a>
-      </p>
+      <p style="opacity: 0.8; margin-bottom: 1.2rem">Відповідаємо швидко — зазвичай до 10 хвилин</p>
+      <p class="contact-phone"><i class="fas fa-phone"></i> <a href="tel:+380980998825">+380 98 099 88 25</a></p>
       <div class="social-links">
-        <a
-          href="https://t.me/cozyhouse_slavsko"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-telegram"></i> Telegram</a
-        >
-        <a href="viber://chat?number=%2B380980998825" class="social-link"
-          ><i class="fab fa-viber"></i> Viber</a
-        >
-        <a
-          href="https://www.instagram.com/cozyhouse_slavsko/"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-instagram"></i> Instagram</a
-        >
-        <a
-          href="https://www.tiktok.com/@cozyhouse_slavsko"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-tiktok"></i> TikTok</a
-        >
+        <a href="https://t.me/cozyhouse_slavsko" class="social-link" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="viber://chat?number=%2B380980998825" class="social-link"><i class="fab fa-viber"></i> Viber</a>
+        <a href="https://www.instagram.com/cozyhouse_slavsko/" class="social-link" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.tiktok.com/@cozyhouse_slavsko" class="social-link" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
       </div>
     </section>
 
@@ -1850,34 +546,18 @@
       <div class="modal-content">
         <button class="close-modal" onclick="closeBookingModal()">×</button>
         <div id="bookingForm">
-          <h2 class="booking-title">
-            Бронювання <span id="modalHouseTitle"></span>
-          </h2>
+          <h2 class="booking-title">Бронювання <span id="modalHouseTitle"></span></h2>
           <p class="booking-subtitle">Заповніть форму або напишіть напряму</p>
           <div class="booking-guarantee">
             <i class="fas fa-bolt"></i>
             Зв'яжемось протягом 10 хвилин · Передоплата 30%
           </div>
           <div class="quick-contacts">
-            <a
-              href="https://t.me/cozyhouse_slavsko"
-              target="_blank"
-              class="quick-btn quick-tg"
-              ><i class="fab fa-telegram"></i> Telegram</a
-            >
-            <a
-              href="viber://chat?number=%2B380980998825"
-              class="quick-btn quick-vb"
-              ><i class="fab fa-viber"></i> Viber</a
-            >
+            <a href="https://t.me/cozyhouse_slavsko" target="_blank" class="quick-btn quick-tg"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="viber://chat?number=%2B380980998825" class="quick-btn quick-vb"><i class="fab fa-viber"></i> Viber</a>
           </div>
           <div class="form-or">або через форму</div>
-          <form
-            class="booking-form"
-            id="bookingFormElement"
-            action="https://formspree.io/f/xgvywnbo"
-            method="POST"
-          >
+          <form class="booking-form" id="bookingFormElement" action="https://formspree.io/f/xgvywnbo" method="POST">
             <input type="hidden" name="house" id="formHouse" />
             <input type="hidden" name="price" id="formPrice" />
             <div class="form-group">
@@ -1892,36 +572,40 @@
               <label>Котедж</label>
               <select id="cottage" name="cottage" required>
                 <option value="">— Виберіть —</option>
-                <option value="Будинок '2 Особи'">
-                  Будинок «2 Особи» — 3 000 грн/ніч
-                </option>
-                <option value="Будинок '4 Особи'">
-                  Будинок «4 Особи» — 4 000 грн/ніч
-                </option>
-                <option value="Будинок '6 Осіб'">
-                  Будинок «6 Осіб» — 6 000 грн/ніч
-                </option>
+                <option value="Будинок '2 Особи'">Будинок «2 Особи» — від 3 500 грн/ніч</option>
+                <option value="Будинок '4 Особи'">Будинок «4 Особи» — від 4 500 грн/ніч</option>
+                <option value="Будинок '6 Осіб'">Будинок «6 Осіб» — від 6 000 грн/ніч</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Кількість гостей</label>
+              <select id="guestsCount" name="guests">
+                <option value="">— Виберіть —</option>
+                <option value="1">1 особа</option>
+                <option value="2">2 особи</option>
+                <option value="3">3 особи</option>
+                <option value="4">4 особи</option>
+                <option value="5">5 осіб</option>
+                <option value="6">6 осіб</option>
               </select>
             </div>
             <div class="form-group">
               <label>Дата заїзду</label>
-              <input type="date" name="date" required />
+              <input type="date" name="date" id="checkinDate" required />
             </div>
             <div class="form-group">
               <label>Кількість ночей</label>
-              <input
-                type="number"
-                name="days"
-                min="1"
-                placeholder="1"
-                required
-              />
+              <input type="number" name="days" id="nightsCount" min="1" placeholder="1" required />
             </div>
-            <button
-              type="submit"
-              class="btn"
-              style="width: 100%; justify-content: center; margin-top: 0.3rem"
-            >
+
+            <!-- DYNAMIC PRICE BOX -->
+            <div class="price-calc-box" id="priceCalcBox">
+              <div class="price-calc-label">Орієнтовна ціна за ніч:</div>
+              <div class="price-calc-value" id="priceCalcValue">— грн <span>/ ніч</span></div>
+              <div class="price-calc-note" id="priceCalcNote"></div>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; justify-content: center; margin-top: 0.3rem">
               <i class="fas fa-paper-plane"></i> Надіслати заявку
             </button>
           </form>
@@ -1929,17 +613,8 @@
         <div class="success-message" id="successMessage">
           <div class="success-icon"><i class="fas fa-check-circle"></i></div>
           <h2 class="success-title">Заявку отримано!</h2>
-          <p class="success-text">
-            Менеджер зв'яжеться з вами протягом <strong>10 хвилин</strong> для
-            підтвердження бронювання.
-          </p>
-          <button
-            class="btn"
-            onclick="closeBookingModal()"
-            style="width: 100%; justify-content: center"
-          >
-            Закрити
-          </button>
+          <p class="success-text">Менеджер зв'яжеться з вами протягом <strong>10 хвилин</strong> для підтвердження бронювання.</p>
+          <button class="btn" onclick="closeBookingModal()" style="width: 100%; justify-content: center">Закрити</button>
         </div>
       </div>
     </div>
@@ -1959,40 +634,68 @@
     </div>
 
     <script>
-      /* GALLERY */
+      /* ─── PRICING LOGIC ─────────────────────────────────────── */
+      function calcPrice(cottage, guests, nights) {
+        guests = parseInt(guests) || 0;
+        nights = parseInt(nights) || 0;
+
+        if (cottage.includes('2 Особи')) {
+          const price = nights >= 3 ? 3500 : 4000;
+          const note = nights >= 3 ? '✓ Знижка від 3 діб' : nights > 0 ? 'від 3 діб — 3 500 грн/ніч' : '';
+          return { price, note };
+        }
+        if (cottage.includes('4 Особи')) {
+          const price = guests === 2 ? 4500 : 5000;
+          const note = guests === 2 ? '✓ Ціна для 2 осіб' : guests > 0 ? 'для 2 осіб — 4 500 грн/ніч' : '';
+          return { price, note };
+        }
+        if (cottage.includes('6 Осіб')) {
+          let price, note;
+          if (guests <= 2 && guests > 0) {
+            price = 6000; note = '✓ Ціна для 2 осіб';
+          } else if (guests <= 4 && guests > 0) {
+            price = 7000; note = '✓ Ціна для 4 осіб';
+          } else {
+            price = 8000; note = guests > 0 ? '✓ Ціна для 5–6 осіб' : '2 особи — 6 000 / 4 особи — 7 000';
+          }
+          return { price, note };
+        }
+        return null;
+      }
+
+      function updatePriceBox() {
+        const cottage = document.getElementById('cottage').value;
+        const guests  = document.getElementById('guestsCount').value;
+        const nights  = document.getElementById('nightsCount').value;
+        const box     = document.getElementById('priceCalcBox');
+        const valEl   = document.getElementById('priceCalcValue');
+        const noteEl  = document.getElementById('priceCalcNote');
+
+        if (!cottage) { box.classList.remove('visible'); return; }
+
+        const result = calcPrice(cottage, guests, nights);
+        if (!result) { box.classList.remove('visible'); return; }
+
+        valEl.innerHTML = result.price.toLocaleString('uk-UA') + ' грн <span>/ ніч</span>';
+        noteEl.textContent = result.note;
+        document.getElementById('formPrice').value = result.price;
+        box.classList.add('visible');
+      }
+
+      ['cottage', 'guestsCount', 'nightsCount'].forEach(id => {
+        document.getElementById(id).addEventListener('change', updatePriceBox);
+        document.getElementById(id).addEventListener('input', updatePriceBox);
+      });
+
+      /* ─── GALLERY ───────────────────────────────────────────── */
       const galleryData = {
-        "6people": [
-          "./img/big/big1.JPG",
-          "./img/big/big2.JPG",
-          "./img/big/big3.JPG",
-          "./img/big/big4.JPG",
-          "./img/big/big5.JPG",
-          "./img/big/big6.JPG",
-          "./img/big/big7.JPG",
-          "./img/big/big8.JPG",
-          "./img/big/big9.JPG",
-        ],
-        "4people": [
-          "./img/soso/soso1.JPG",
-          "./img/soso/soso2.JPG",
-          "./img/soso/soso3.JPG",
-          "./img/soso/soso4.JPG",
-          "./img/soso/soso5.JPG",
-          "./img/soso/soso6.JPG",
-        ],
-        "2people": [
-          "./img/smoal/smoal1.JPG",
-          "./img/smoal/smoal2.JPG",
-          "./img/smoal/smoal3.JPG",
-          "./img/smoal/smoal4.JPG",
-          "./img/smoal/smoal5.JPG",
-        ],
+        "6people": ["./img/big/big1.JPG","./img/big/big2.JPG","./img/big/big3.JPG","./img/big/big4.JPG","./img/big/big5.JPG","./img/big/big6.JPG","./img/big/big7.JPG","./img/big/big8.JPG","./img/big/big9.JPG"],
+        "4people": ["./img/soso/soso1.JPG","./img/soso/soso2.JPG","./img/soso/soso3.JPG","./img/soso/soso4.JPG","./img/soso/soso5.JPG","./img/soso/soso6.JPG"],
+        "2people": ["./img/smoal/smoal1.JPG","./img/smoal/smoal2.JPG","./img/smoal/smoal3.JPG","./img/smoal/smoal4.JPG","./img/smoal/smoal5.JPG"],
       };
+      let currentSlide = 0, totalSlides = 0;
 
-      let currentSlide = 0,
-        totalSlides = 0;
-
-      document.querySelectorAll(".house-img").forEach((img) => {
+      document.querySelectorAll(".house-img").forEach(img => {
         img.addEventListener("click", function () {
           const images = galleryData[this.dataset.house];
           totalSlides = images.length;
@@ -2002,8 +705,7 @@
             const slide = document.createElement("div");
             slide.className = "gallery-slide" + (i === 0 ? " active" : "");
             const el = document.createElement("img");
-            el.src = src;
-            el.alt = "Фото " + (i + 1);
+            el.src = src; el.alt = "Фото " + (i + 1);
             slide.appendChild(el);
             document.getElementById("gallerySlides").appendChild(slide);
             const dot = document.createElement("div");
@@ -2011,58 +713,38 @@
             dot.addEventListener("click", () => goToSlide(i));
             document.getElementById("galleryDots").appendChild(dot);
           });
-          currentSlide = 0;
-          updateCounter();
+          currentSlide = 0; updateCounter();
           document.getElementById("galleryModal").style.display = "flex";
           document.body.style.overflow = "hidden";
         });
       });
 
-      document
-        .getElementById("closeGallery")
-        .addEventListener("click", closeGallery);
-      document.getElementById("galleryModal").addEventListener("click", (e) => {
-        if (e.target.id === "galleryModal") closeGallery();
-      });
-      document
-        .getElementById("prevSlide")
-        .addEventListener("click", () => goToSlide(currentSlide - 1));
-      document
-        .getElementById("nextSlide")
-        .addEventListener("click", () => goToSlide(currentSlide + 1));
+      document.getElementById("closeGallery").addEventListener("click", closeGallery);
+      document.getElementById("galleryModal").addEventListener("click", e => { if (e.target.id === "galleryModal") closeGallery(); });
+      document.getElementById("prevSlide").addEventListener("click", () => goToSlide(currentSlide - 1));
+      document.getElementById("nextSlide").addEventListener("click", () => goToSlide(currentSlide + 1));
 
       function goToSlide(i) {
         const slides = document.querySelectorAll(".gallery-slide");
-        const dots = document.querySelectorAll(".dot");
+        const dots   = document.querySelectorAll(".dot");
         if (i >= slides.length) i = 0;
         if (i < 0) i = slides.length - 1;
-        slides.forEach((s) => s.classList.remove("active"));
-        dots.forEach((d) => d.classList.remove("active"));
+        slides.forEach(s => s.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
         slides[i].classList.add("active");
         dots[i].classList.add("active");
-        currentSlide = i;
-        updateCounter();
+        currentSlide = i; updateCounter();
       }
-      function updateCounter() {
-        document.getElementById("galleryCounter").textContent =
-          currentSlide + 1 + " / " + totalSlides;
-      }
-      function closeGallery() {
-        document.getElementById("galleryModal").style.display = "none";
-        document.body.style.overflow = "auto";
-      }
+      function updateCounter() { document.getElementById("galleryCounter").textContent = (currentSlide + 1) + " / " + totalSlides; }
+      function closeGallery() { document.getElementById("galleryModal").style.display = "none"; document.body.style.overflow = "auto"; }
 
-      /* BOOKING */
+      /* ─── BOOKING MODAL ─────────────────────────────────────── */
       function openBookingModal(houseName, housePrice) {
         if (houseName) {
           document.getElementById("modalHouseTitle").textContent = houseName;
           document.getElementById("formHouse").value = houseName;
           document.getElementById("formPrice").value = housePrice || "";
-          Array.from(document.getElementById("cottage").options).forEach(
-            (o) => {
-              o.selected = o.value === houseName;
-            },
-          );
+          Array.from(document.getElementById("cottage").options).forEach(o => { o.selected = o.value === houseName; });
         } else {
           document.getElementById("modalHouseTitle").textContent = "";
         }
@@ -2070,104 +752,70 @@
         document.getElementById("successMessage").style.display = "none";
         document.getElementById("bookingModal").style.display = "flex";
         document.body.style.overflow = "hidden";
+        updatePriceBox();
       }
       function closeBookingModal() {
         document.getElementById("bookingModal").style.display = "none";
         document.body.style.overflow = "auto";
       }
 
-      document.getElementById("bookingModal").addEventListener("click", (e) => {
-        if (e.target.id === "bookingModal") closeBookingModal();
+      document.getElementById("bookingModal").addEventListener("click", e => { if (e.target.id === "bookingModal") closeBookingModal(); });
+
+      document.querySelectorAll(".book-btn").forEach(btn => {
+        btn.addEventListener("click", function () { openBookingModal(this.dataset.house, this.dataset.price); });
       });
 
-      document.querySelectorAll(".book-btn").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          openBookingModal(this.dataset.house, this.dataset.price);
-        });
-      });
-
-      document
-        .getElementById("bookingFormElement")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-          try {
-            const res = await fetch(this.action, {
-              method: "POST",
-              body: new FormData(this),
-              headers: { Accept: "application/json" },
-            });
-            if (res.ok) {
-              document.getElementById("bookingForm").style.display = "none";
-              document.getElementById("successMessage").style.display = "block";
-              this.reset();
-            } else {
-              alert(
-                "Помилка відправлення. Спробуйте ще раз або напишіть у Telegram.",
-              );
-            }
-          } catch {
-            alert("Помилка мережі. Напишіть нам у Telegram.");
+      document.getElementById("bookingFormElement").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        try {
+          const res = await fetch(this.action, { method: "POST", body: new FormData(this), headers: { Accept: "application/json" } });
+          if (res.ok) {
+            document.getElementById("bookingForm").style.display = "none";
+            document.getElementById("successMessage").style.display = "block";
+            this.reset();
+            document.getElementById('priceCalcBox').classList.remove('visible');
+          } else {
+            alert("Помилка відправлення. Спробуйте ще раз або напишіть у Telegram.");
           }
-        });
-
-      /* NAV */
-      const nav = document.getElementById("mainNav");
-      window.addEventListener("scroll", () => {
-        nav.classList.toggle("scrolled", window.scrollY > 60);
+        } catch { alert("Помилка мережі. Напишіть нам у Telegram."); }
       });
+
+      /* ─── NAV ───────────────────────────────────────────────── */
+      const nav = document.getElementById("mainNav");
+      window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
 
       const mobileBtn = document.getElementById("mobileMenuBtn");
-      const navLinks = document.getElementById("navLinks");
+      const navLinks  = document.getElementById("navLinks");
       mobileBtn.addEventListener("click", () => {
         navLinks.classList.toggle("active");
-        mobileBtn.innerHTML = navLinks.classList.contains("active")
-          ? '<i class="fas fa-times"></i>'
-          : '<i class="fas fa-bars"></i>';
+        mobileBtn.innerHTML = navLinks.classList.contains("active") ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
       });
 
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener("click", function (e) {
           const id = this.getAttribute("href");
-          if (id === "#") {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            return;
-          }
+          if (id === "#") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
           const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-            window.scrollTo({
-              top: target.offsetTop - nav.offsetHeight,
-              behavior: "smooth",
-            });
-            navLinks.classList.remove("active");
-            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-          }
+          if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - nav.offsetHeight, behavior: "smooth" }); navLinks.classList.remove("active"); mobileBtn.innerHTML = '<i class="fas fa-bars"></i>'; }
         });
       });
 
-      /* KEYBOARD */
-      document.addEventListener("keydown", (e) => {
+      /* ─── KEYBOARD ──────────────────────────────────────────── */
+      document.addEventListener("keydown", e => {
         if (document.getElementById("galleryModal").style.display === "flex") {
           if (e.key === "ArrowLeft") goToSlide(currentSlide - 1);
           else if (e.key === "ArrowRight") goToSlide(currentSlide + 1);
           else if (e.key === "Escape") closeGallery();
         }
-        if (
-          document.getElementById("bookingModal").style.display === "flex" &&
-          e.key === "Escape"
-        )
-          closeBookingModal();
+        if (document.getElementById("bookingModal").style.display === "flex" && e.key === "Escape") closeBookingModal();
       });
 
-      /* FAQ */
-      document.querySelectorAll(".faq-question").forEach((btn) => {
+      /* ─── FAQ ───────────────────────────────────────────────── */
+      document.querySelectorAll(".faq-question").forEach(btn => {
         btn.addEventListener("click", function () {
           const item = this.closest(".faq-item");
           const open = item.classList.contains("open");
-          document
-            .querySelectorAll(".faq-item")
-            .forEach((i) => i.classList.remove("open"));
+          document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
           if (!open) item.classList.add("open");
         });
       });
